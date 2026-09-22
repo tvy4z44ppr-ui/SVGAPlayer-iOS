@@ -1,4 +1,11 @@
+# 1.0.0基于1.0.1源代码修改
+### 1.增加了CacheKey过滤功能
+    [SVGAParser setSharedCacheKeyFilter:^NSString *_Nullable(NSURL *_Nonnull url) {
+        NSURLComponents *components = [NSURLComponents componentsWithURL:url resolvingAgainstBaseURL:NO];
+        return components.URL.absoluteString;
+    }];
 
+# 👇🏻👇🏻👇🏻是源库的MD   
 # 1.0.1基于2.5.7源代码修改
 ### 1.增加了清理内存缓存的功能,防止内存过大造成的Crash.
 ### 2.增加了本地磁盘二进制文件的缓存,防止SVGA重复下载造成的流量浪费.
@@ -7,7 +14,6 @@
 <br>
 <br>
 
-# 👇🏻👇🏻👇🏻是源库的MD
 
 # SVGAPlayer
 
