@@ -99,6 +99,7 @@ static SVGAParserCacheKeyFilterBlock sharedCacheKeyFilter;
         return;
     }
     
+    NSLog(@"%@",URLRequest.URL.absoluteString);
     // 网络请求SVGAData
     __weak typeof(self) weakSelf = self;
     [[[NSURLSession sharedSession] dataTaskWithRequest:URLRequest completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
@@ -403,6 +404,7 @@ static SVGAParserCacheKeyFilterBlock sharedCacheKeyFilter;
         SVGAParserCacheKeyFilterBlock filter = self.cacheKeyFilter ?: [SVGAParser sharedCacheKeyFilter];
         if (filter != nil) {
             NSString *filteredString = filter(URL);
+            NSLog(@"%@",filteredString);
             if (filteredString.length > 0) {
                 keyString = filteredString;
             }
